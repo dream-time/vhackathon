@@ -7,12 +7,12 @@
 const items = require('../models/user')
 
 exports.add = (req, res) => {
-    let yn = true
-    let user = req.body
-    var alls;
     items.all((err, docs) => {
+        var yn = true
+        let user = req.body
+        var alls;
         if(err){
-            return res.sendStatus(500)
+             return res.sendStatus(500)
         }
         docs.map((item, index) => {
             console.log(item.login.toString().trim(),user.login.toString().trim())
