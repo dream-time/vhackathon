@@ -5,6 +5,7 @@
 */
 
 const items = require('../models/user')
+const md5 = require('js-md5');
 
 exports.addUser = (req, res) => {
     items.all((err, docs) => {
@@ -22,7 +23,7 @@ exports.addUser = (req, res) => {
         if(yn){
             items.add({
                 login: req.body.login,
-                pass: req.body.pass,
+                pass: md5(req.body.pass.toString().trim()),
                 type: req.body.type
             }, (err, result) => {
                 if(err) {
@@ -49,7 +50,7 @@ exports.login = (req, res) => {
         docs.map((item, index) => {
             console.log(item.login.toString().trim(),user.login.toString().trim())
             if(item.login.toString().trim() == user.login.toString().trim()){
-                if(item.pass.toString().trim() == user.pass.toString().trim()){
+                if(item.pass.toString().trim() == md5(user.pass.toString().trim())){
                     yn = true
                 }
             }
