@@ -4,6 +4,7 @@ const express = require('express'),
       body_parser = require('body-parser')
       db = require('./db'),
       userController = require('./controllers/user')
+      itemsController = require('./controllers/itemsControllers')
 
 const app = express()
 app.use(body_parser.json())
