@@ -7,7 +7,7 @@
 const lkr = require('../models/lkr') 
 
 exports.getLkr = (req, res) => {
-    lkr.all((err, docs) => {
+    items.all((err, docs) => {
         let lkrs = req.body
         if(err) {
             return res.sendStatus(500)
@@ -23,18 +23,18 @@ exports.getLkr = (req, res) => {
 }
 
 exports.addLkr = (req, res) => {
-    lkr.all((err, docs) => {
+    items.all((err, docs) => {
         let lkrs = req.body
         if(err) {
             return res.sendStatus(500)
         }
         let itm = true
         docs.map((item, index) => {
-            if(item && item.name.toString().trim() == lkrs.name.toString().trim()){
+            if(item.name.toString().trim() == lkrs.name.toString().trim()){
                 itm = false
             }
         })
-        if(itm) {
+        if(itm){
             lkr.add(lkrs, (err, result) => {
                 if(err){
                     return res.sendStatus(500)
@@ -43,6 +43,9 @@ exports.addLkr = (req, res) => {
                     return res.sendStatus(200)
                 }
             })
+        }
+        else {
+            res.send('exist')
         }
     })
 }
