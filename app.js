@@ -1,3 +1,9 @@
+/*
+    Copyright: Ilya Tvaliashvili
+    VK: vk.com/ilyfo
+    Please before using contact us!
+*/
+
 const express = require('express'),
       passport = require('passport'),
       axios = require('axios'),

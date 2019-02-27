@@ -49,7 +49,9 @@ exports.login = (req, res) => {
         docs.map((item, index) => {
             console.log(item.login.toString().trim(),user.login.toString().trim())
             if(item.login.toString().trim() == user.login.toString().trim()){
-                yn = true
+                if(item.pass.toString().trim() == user.pass.toString().trim()){
+                    yn = true
+                }
             }
         })
         if(yn){
