@@ -29,13 +29,11 @@ exports.add = (req, res) => {
                     console.log(err)
                     return res.sendStatus(500)
                 }
-                res.sendStatus(200)
+                return res.sendStatus(200)
             })
         }
         else {
-            res.send('exist')
+            return res.send('exist')
         }
     })
-    console.log(alls)
-   
 }
