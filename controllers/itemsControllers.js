@@ -39,6 +39,9 @@ exports.addLkr = (req, res) => {
                 if(err){
                     return res.sendStatus(500)
                 }
+                else {
+                    return res.sendStatus(200)
+                }
             })
         }
     })
