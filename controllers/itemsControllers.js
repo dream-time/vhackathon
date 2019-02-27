@@ -18,7 +18,7 @@ exports.getLkr = (req, res) => {
                 itm = item
             }
         })
-        return itm ? res.send(JSON.parse(itm)) : 'error'
+        return itm ? res.send(JSON.stringify(itm)) : 'error'
     })
 }
 
