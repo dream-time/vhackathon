@@ -9,7 +9,10 @@ const items = require('../models/user')
 exports.add = (req, res) => {
     let yn = true
     let user = req.body
-    let all = items.all()
+    var all = []
+    items.all((err, docs) => {
+        all = docs
+    })
     all.map((item, index) => {
         if(item.login == user.login.toString().trim()){
             yn = false
