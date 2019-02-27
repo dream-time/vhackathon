@@ -17,6 +17,7 @@ exports.add = (req, res) => {
         alls = docs
     })
     alls.map((item, index) => {
+        console.log(item.login.toString().trim(),user.login.toString().trim())
         if(item.login.toString().trim() == user.login.toString().trim()){
             yn = false
         }
