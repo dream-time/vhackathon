@@ -7,7 +7,7 @@
 const lkr = require('../models/lkr') 
 
 exports.getLkr = (req, res) => {
-    items.all((err, docs) => {
+    lkr.all((err, docs) => {
         let lkrs = req.body
         if(err) {
             return res.sendStatus(500)
@@ -23,7 +23,7 @@ exports.getLkr = (req, res) => {
 }
 
 exports.addLkr = (req, res) => {
-    items.all((err, docs) => {
+    lkr.all((err, docs) => {
         let lkrs = req.body
         if(err) {
             return res.sendStatus(500)
