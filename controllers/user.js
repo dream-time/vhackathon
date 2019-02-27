@@ -15,6 +15,7 @@ exports.add = (req, res) => {
             return res.sendStatus(500)
         }
         alls = docs
+        console.log(docs)
     })
     console.log(alls)
     alls.map((item, index) => {
