@@ -9,12 +9,15 @@ const items = require('../models/user')
 exports.add = (req, res) => {
     let yn = true
     let user = req.body
-    var all = []
+    var alls = []
     items.all((err, docs) => {
-        all = docs
+        if(err){
+            return res.sendStatus(500)
+        }
+        alls = docs
     })
-    all.map((item, index) => {
-        if(item.login == user.login.toString().trim()){
+    alls.map((item, index) => {
+        if(item.login.toString().trim() == user.login.toString().trim()){
             yn = false
         }
     })
