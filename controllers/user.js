@@ -6,7 +6,7 @@
 
 const items = require('../models/user')
 
-exports.add = (req, res) => {
+exports.addUser = (req, res) => {
     items.all((err, docs) => {
         var yn = true
         let user = req.body
@@ -23,6 +23,7 @@ exports.add = (req, res) => {
             items.add({
                 login: req.body.login,
                 pass: req.body.pass,
+                type: req.body.type
             }, (err, result) => {
                 if(err) {
                     console.log(err)
