@@ -10,7 +10,6 @@ exports.add = (req, res) => {
     items.all((err, docs) => {
         var yn = true
         let user = req.body
-        var alls;
         if(err){
              return res.sendStatus(500)
         }
@@ -34,6 +33,29 @@ exports.add = (req, res) => {
         }
         else {
             return res.send('exist')
+        }
+    })
+}
+
+exports.login = (req, res) => {
+    const user = req.body
+    items.all((err, docs) => {
+        var yn = true
+        let user = req.body
+        if(err){
+             return res.sendStatus(500)
+        }
+        docs.map((item, index) => {
+            console.log(item.login.toString().trim(),user.login.toString().trim())
+            if(item.login.toString().trim() == user.login.toString().trim()){
+                yn = false
+            }
+        })
+        if(yn){
+            return res.send('loginned')
+        }
+        else {
+            return res.send('error')
         }
     })
 }
