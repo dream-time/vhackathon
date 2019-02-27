@@ -30,7 +30,7 @@ exports.addLkr = (req, res) => {
         }
         let itm = true
         docs.map((item, index) => {
-            if(item.name.toString().trim() == lkrs.name.toString().trim()){
+            if(item && item.name.toString().trim() == lkrs.name.toString().trim()){
                 itm = false
             }
         })
@@ -39,7 +39,6 @@ exports.addLkr = (req, res) => {
                 if(err){
                     return res.sendStatus(500)
                 }
-                return res.sendStatus(200)
             })
         }
     })
