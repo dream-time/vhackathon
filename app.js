@@ -2,7 +2,8 @@ const express = require('express'),
       passport = require('passport'),
       axios = require('axios'),
       body_parser = require('body-parser')
-      db = require('./db')
+      db = require('./db'),
+      userController = require('./controllers/user')
 
 const app = express()
 app.use(body_parser.json())
@@ -13,5 +14,7 @@ db.connect('mongodb://heroku_hjtggkpb:60etht0rf7p90umhl1medqe1jo@ds155045.mlab.c
     }
     app.listen(process.env.PORT || 8080)
 })
+
+app.post('reg', userController.add)
 
 
