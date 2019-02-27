@@ -7,7 +7,6 @@
 const items = require('../models/user')
 
 exports.add = (req, res) => {
-    console.log(1)
     let yn = true
     let user = req.body
     var alls = []
@@ -17,6 +16,7 @@ exports.add = (req, res) => {
         }
         alls = docs
     })
+    console.log(alls)
     alls.map((item, index) => {
         console.log(item.login.toString().trim(),user.login.toString().trim())
         if(item.login.toString().trim() == user.login.toString().trim()){
