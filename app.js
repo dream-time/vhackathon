@@ -11,5 +11,7 @@ db.connect('mongodb://heroku_hjtggkpb:60etht0rf7p90umhl1medqe1jo@ds155045.mlab.c
     if(err){
         console.log(err)
     }
-    app.listen(8080 || process.env.PORT)
+    app.listen(process.env.PORT || 8080)
 })
+
+
