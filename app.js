@@ -19,5 +19,5 @@ db.connect('mongodb://heroku_hjtggkpb:60etht0rf7p90umhl1medqe1jo@ds155045.mlab.c
 app.post('/reg', userController.addUser)
 app.post('/login', userController.login)
 app.post('/lkrAdd', itemsController.addLkr)
-
+app.post('/lkrGet', itemsController.getLkr)
 
