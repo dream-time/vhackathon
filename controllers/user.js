@@ -40,7 +40,7 @@ exports.add = (req, res) => {
 exports.login = (req, res) => {
     const user = req.body
     items.all((err, docs) => {
-        var yn = true
+        var yn = false
         let user = req.body
         if(err){
              return res.sendStatus(500)
@@ -48,7 +48,7 @@ exports.login = (req, res) => {
         docs.map((item, index) => {
             console.log(item.login.toString().trim(),user.login.toString().trim())
             if(item.login.toString().trim() == user.login.toString().trim()){
-                yn = false
+                yn = true
             }
         })
         if(yn){
