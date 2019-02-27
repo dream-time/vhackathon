@@ -7,6 +7,7 @@
 const items = require('../models/user')
 
 exports.add = (req, res) => {
+    console.log(1)
     let yn = true
     let user = req.body
     var alls = []
